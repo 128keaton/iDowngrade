@@ -21,5 +21,8 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
+- (void)registerForDraggedTypes:(NSArray *)pasteboardTypes{
+    
+}
 
 @end

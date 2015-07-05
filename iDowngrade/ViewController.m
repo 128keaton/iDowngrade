@@ -18,7 +18,6 @@
 @implementation ViewController
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -78,6 +77,8 @@
     
     [fileManager createDirectoryAtPath:[temporaryFilePath stringByAppendingString:@"/shsh"] withIntermediateDirectories:NO attributes:nil error:&errorMakingSHSHFolder];
     
+    [fileManager createDirectoryAtPath:[temporaryFilePath stringByAppendingString:@"/bss"] withIntermediateDirectories:NO attributes:nil error:&errorMakingSHSHFolder];
+    
     if (errorRemovingOldFirmwareBundles) {
        // [self callError:2];
     }
@@ -87,7 +88,7 @@
     }
     
     if (errorMakingSHSHFolder) {
-        // [self callError:3];
+        // [self callError:4];
     }
     
 
@@ -117,10 +118,135 @@
     [task setStandardInput:[NSPipe pipe]];
     [defaults synchronize];
     currentTask = task;
+    self.ipswProgress.hidden = NO;
+    [self.ipswProgress startAnimation:nil];
+    
     [task launch];
+    [task waitUntilExit];
+    
+    self.ipswProgress.hidden = YES;
+    [self.ipswProgress stopAnimation:nil];
+    
 
     
 }
+-(IBAction)fetchSHSH:(id)sender{
+    //Check if user specified custom blobs
+    if(_shshField.stringValue.length < 1){
+        
+    
+        NSTask *task = [[NSTask alloc] init];
+    
+        [task setCurrentDirectoryPath:temporaryFilePath];
+
+    
+        NSString *firmwarePath = [[temporaryFilePath stringByAppendingString:@"/custom_downgrade.ipsw"]stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+        NSString *launchPath = [[[NSBundle mainBundle]resourcePath] stringByAppendingString:@"/idevicerestore"];
+    
+        [task setLaunchPath: launchPath];
+        task.arguments  = @[@"-t", firmwarePath];
+        NSLog(@"Task arguments: %@", task.arguments);
+    
+    
+    
+        [task setStandardInput:[NSPipe pipe]];
+        [defaults synchronize];
+        currentTask = task;
+        self.shshProgress.hidden = NO;
+        [self.shshProgress startAnimation:nil];
+        [task launch];
+        [task waitUntilExit];
+        
+        self.shshProgress.hidden = YES;
+        [self.shshProgress stopAnimation:nil];
+    }else{
+        self.shshProgress.hidden = NO;
+        [self.shshProgress startAnimation:nil];
+        NSError *error;
+        NSFileManager *fileManager = [NSFileManager new];
+        NSError *errorMovingBlobs;
+   
+        NSString *shshPath = [self.shshField.stringValue stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+        
+        if ([ fileManager fileExistsAtPath:[temporaryFilePath stringByAppendingString:[NSString stringWithFormat:@"/shsh/%@",[shshPath lastPathComponent]]]])
+        {
+            //removing destination, so soucer may be copied
+            if (![fileManager removeItemAtPath:[temporaryFilePath stringByAppendingString:[NSString stringWithFormat:@"/shsh/%@",[shshPath lastPathComponent]]] error:&error])
+            {
+                NSLog(@"Could not remove old files. Error:%@",error);
+              
+             
+            }
+        }
+        
+        [fileManager copyItemAtPath:shshPath toPath:[temporaryFilePath stringByAppendingString:[NSString stringWithFormat:@"/shsh/%@",[shshPath lastPathComponent]]] error:&errorMovingBlobs];
+        if (errorMovingBlobs) {
+            // [self callError:5];
+            NSLog(@"Error moving blobs: %@", errorMovingBlobs);
+            
+            NSLog(@"SHSH blob path: %@", shshPath);
+            
+            NSLog(@"Reciving path: %@", [temporaryFilePath stringByAppendingString:@"/shsh/"]);
+        }
+        self.shshProgress.hidden = YES;
+        [self.shshProgress stopAnimation:nil];
+ 
+    }
+
+    
+    
+}
+
+-(void)makePwnediBSS{
+    [self movePrerequisites];
+    NSTask *task = [[NSTask alloc] init];
+    [task setCurrentDirectoryPath:temporaryFilePath];
+
+    NSString *firmwarePath = [NSString stringWithFormat:@"%@/custom_firmware.ipsw", temporaryFilePath];
+    NSString *junkPath = [NSString stringWithFormat:@"%@/bss", temporaryFilePath];
+    
+    
+    [task setLaunchPath:@"/usr/bin/unzip"];
+    task.arguments  = @[firmwarePath, @"-d",  junkPath];
+    
+
+    [task setCurrentDirectoryPath:[[NSBundle mainBundle]resourcePath]];
+    
+    [task launch];
+    [task waitUntilExit];
+    
+    NSString *iBSS;
+    junkPath = [NSString stringWithFormat:@"%@/bss/Firmware/dfu/", [[NSBundle mainBundle]resourcePath]];
+    
+    NSFileManager *fileManager = [NSFileManager new];
+    
+    for(NSString *item in [fileManager contentsOfDirectoryAtPath:junkPath error:nil]) {
+        if ([item containsString:@"iBSS"]) {
+            iBSS = item;
+        }
+    }
+    
+    iBSS = [NSString stringWithFormat:@"%@/bss/Firmware/DFU/%@", [[NSBundle mainBundle]resourcePath], iBSS];
+    NSLog(@"iBSS path: %@", iBSS);
+
+    NSString *scriptPath = [NSString stringWithFormat:@"%@/movebss.sh %@", [[NSBundle mainBundle]resourcePath], temporaryFilePath];
+    
+    [task setLaunchPath:@"/bin/sh"];
+    task.arguments  = @[@"-c", scriptPath];
+    
+    
+    NSPipe * out = [NSPipe pipe];
+    [task setStandardOutput:out];
+    
+    [task launch];
+
+  
+    
+    
+}
+
+
+
 -(IBAction)cancelDowngrade:(id)sender{
     [currentTask terminate];
     

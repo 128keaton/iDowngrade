@@ -24,6 +24,7 @@
 		8A01A6671B48FBA50010F111 /* ticket in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65E1B48FBA50010F111 /* ticket */; };
 		8A01A6681B48FBA50010F111 /* validate in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65F1B48FBA50010F111 /* validate */; };
 		8A01A6691B48FBA50010F111 /* xpwntool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6601B48FBA50010F111 /* xpwntool */; };
+		8A01A66B1B4910BF0010F111 /* movebss.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A66A1B4910BF0010F111 /* movebss.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		8A01A65E1B48FBA50010F111 /* ticket */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ticket; sourceTree = "<group>"; };
 		8A01A65F1B48FBA50010F111 /* validate */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = validate; sourceTree = "<group>"; };
 		8A01A6601B48FBA50010F111 /* xpwntool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = xpwntool; sourceTree = "<group>"; };
+		8A01A66A1B4910BF0010F111 /* movebss.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = movebss.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		8A01A6431B48F4F70010F111 /* pwn-stuff */ = {
 			isa = PBXGroup;
 			children = (
+				8A01A66A1B4910BF0010F111 /* movebss.sh */,
 				8A01A6581B48FBA50010F111 /* FirmwareBundles */,
 				8A01A6591B48FBA50010F111 /* idevicerestore */,
 				8A01A65A1B48FBA50010F111 /* ipsw */,
@@ -256,6 +259,7 @@
 				8A01A6611B48FBA50010F111 /* FirmwareBundles in Resources */,
 				8A01A6671B48FBA50010F111 /* ticket in Resources */,
 				8A01A6661B48FBA50010F111 /* sshtool in Resources */,
+				8A01A66B1B4910BF0010F111 /* movebss.sh in Resources */,
 				8A01A6621B48FBA50010F111 /* idevicerestore in Resources */,
 				8A01A6651B48FBA50010F111 /* shsh in Resources */,
 				8A01A6691B48FBA50010F111 /* xpwntool in Resources */,
