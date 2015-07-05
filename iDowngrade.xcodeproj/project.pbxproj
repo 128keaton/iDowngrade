@@ -13,6 +13,17 @@
 		8A01A6251B48F1850010F111 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6241B48F1850010F111 /* Images.xcassets */; };
 		8A01A6281B48F1850010F111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6261B48F1850010F111 /* Main.storyboard */; };
 		8A01A6341B48F1850010F111 /* iDowngradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A01A6331B48F1850010F111 /* iDowngradeTests.m */; };
+		8A01A63E1B48F1D70010F111 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01A63D1B48F1D70010F111 /* Sparkle.framework */; };
+		8A01A6401B48F1FA0010F111 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A01A63D1B48F1D70010F111 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A01A6611B48FBA50010F111 /* FirmwareBundles in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6581B48FBA50010F111 /* FirmwareBundles */; };
+		8A01A6621B48FBA50010F111 /* idevicerestore in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6591B48FBA50010F111 /* idevicerestore */; };
+		8A01A6631B48FBA50010F111 /* ipsw in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65A1B48FBA50010F111 /* ipsw */; };
+		8A01A6641B48FBA50010F111 /* irecovery in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65B1B48FBA50010F111 /* irecovery */; };
+		8A01A6651B48FBA50010F111 /* shsh in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65C1B48FBA50010F111 /* shsh */; };
+		8A01A6661B48FBA50010F111 /* sshtool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65D1B48FBA50010F111 /* sshtool */; };
+		8A01A6671B48FBA50010F111 /* ticket in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65E1B48FBA50010F111 /* ticket */; };
+		8A01A6681B48FBA50010F111 /* validate in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65F1B48FBA50010F111 /* validate */; };
+		8A01A6691B48FBA50010F111 /* xpwntool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6601B48FBA50010F111 /* xpwntool */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +35,19 @@
 			remoteInfo = iDowngrade;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8A01A63F1B48F1F70010F111 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8A01A6401B48F1FA0010F111 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8A01A6171B48F1850010F111 /* iDowngrade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDowngrade.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +62,16 @@
 		8A01A62D1B48F1850010F111 /* iDowngradeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iDowngradeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A01A6321B48F1850010F111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A01A6331B48F1850010F111 /* iDowngradeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDowngradeTests.m; sourceTree = "<group>"; };
+		8A01A63D1B48F1D70010F111 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		8A01A6581B48FBA50010F111 /* FirmwareBundles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FirmwareBundles; sourceTree = "<group>"; };
+		8A01A6591B48FBA50010F111 /* idevicerestore */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = idevicerestore; sourceTree = "<group>"; };
+		8A01A65A1B48FBA50010F111 /* ipsw */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ipsw; sourceTree = "<group>"; };
+		8A01A65B1B48FBA50010F111 /* irecovery */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = irecovery; sourceTree = "<group>"; };
+		8A01A65C1B48FBA50010F111 /* shsh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shsh; sourceTree = "<group>"; };
+		8A01A65D1B48FBA50010F111 /* sshtool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sshtool; sourceTree = "<group>"; };
+		8A01A65E1B48FBA50010F111 /* ticket */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ticket; sourceTree = "<group>"; };
+		8A01A65F1B48FBA50010F111 /* validate */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = validate; sourceTree = "<group>"; };
+		8A01A6601B48FBA50010F111 /* xpwntool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = xpwntool; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A01A63E1B48F1D70010F111 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +114,7 @@
 		8A01A6191B48F1850010F111 /* iDowngrade */ = {
 			isa = PBXGroup;
 			children = (
+				8A01A6431B48F4F70010F111 /* pwn-stuff */,
 				8A01A61C1B48F1850010F111 /* AppDelegate.h */,
 				8A01A61D1B48F1850010F111 /* AppDelegate.m */,
 				8A01A6211B48F1850010F111 /* ViewController.h */,
@@ -93,6 +129,7 @@
 		8A01A61A1B48F1850010F111 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A01A63D1B48F1D70010F111 /* Sparkle.framework */,
 				8A01A61B1B48F1850010F111 /* Info.plist */,
 				8A01A61F1B48F1850010F111 /* main.m */,
 			);
@@ -116,6 +153,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8A01A6431B48F4F70010F111 /* pwn-stuff */ = {
+			isa = PBXGroup;
+			children = (
+				8A01A6581B48FBA50010F111 /* FirmwareBundles */,
+				8A01A6591B48FBA50010F111 /* idevicerestore */,
+				8A01A65A1B48FBA50010F111 /* ipsw */,
+				8A01A65B1B48FBA50010F111 /* irecovery */,
+				8A01A65C1B48FBA50010F111 /* shsh */,
+				8A01A65D1B48FBA50010F111 /* sshtool */,
+				8A01A65E1B48FBA50010F111 /* ticket */,
+				8A01A65F1B48FBA50010F111 /* validate */,
+				8A01A6601B48FBA50010F111 /* xpwntool */,
+			);
+			name = "pwn-stuff";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,6 +179,7 @@
 				8A01A6131B48F1850010F111 /* Sources */,
 				8A01A6141B48F1850010F111 /* Frameworks */,
 				8A01A6151B48F1850010F111 /* Resources */,
+				8A01A63F1B48F1F70010F111 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -196,8 +250,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A01A6681B48FBA50010F111 /* validate in Resources */,
 				8A01A6251B48F1850010F111 /* Images.xcassets in Resources */,
 				8A01A6281B48F1850010F111 /* Main.storyboard in Resources */,
+				8A01A6611B48FBA50010F111 /* FirmwareBundles in Resources */,
+				8A01A6671B48FBA50010F111 /* ticket in Resources */,
+				8A01A6661B48FBA50010F111 /* sshtool in Resources */,
+				8A01A6621B48FBA50010F111 /* idevicerestore in Resources */,
+				8A01A6651B48FBA50010F111 /* shsh in Resources */,
+				8A01A6691B48FBA50010F111 /* xpwntool in Resources */,
+				8A01A6631B48FBA50010F111 /* ipsw in Resources */,
+				8A01A6641B48FBA50010F111 /* irecovery in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,9 +398,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iDowngrade",
+				);
 				INFOPLIST_FILE = iDowngrade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				a = "";
 			};
 			name = Debug;
 		};
@@ -346,9 +415,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iDowngrade",
+				);
 				INFOPLIST_FILE = iDowngrade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				a = "";
 			};
 			name = Release;
 		};

@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ViewController : NSViewController
+@property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSTextField *firmwareField;
 
 
 @end
