@@ -697,9 +697,12 @@
                             </customView>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GL7-8g-pM3">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <rect key="frame" x="45" y="73" width="200" height="26"/>
                                 <popUpButtonCell key="cell" type="push" title="Make IPSW" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="gBi-yh-bIv" id="JUY-Za-Jq7">
 =======
+=======
+>>>>>>> FETCH_HEAD
                                 <rect key="frame" x="113" y="73" width="200" height="26"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="JUY-Za-Jq7">
 >>>>>>> FETCH_HEAD
@@ -735,10 +738,13 @@
                                 </connections>
                             </button>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <button fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgs-QB-iw9">
                                 <rect key="frame" x="376" y="87" width="61" height="18"/>
                                 <buttonCell key="cell" type="check" title="IPSW" bezelStyle="regularSquare" imagePosition="left" alignment="left" refusesFirstResponder="YES" userInterfaceLayoutDirection="rightToLeft" allowsMixedState="YES" inset="2" id="Sl5-ud-glL">
 =======
+=======
+>>>>>>> FETCH_HEAD
                             <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="0Hr-Zc-Eas">
                                 <rect key="frame" x="395" y="78" width="16" height="16"/>
                             </progressIndicator>
@@ -753,6 +759,9 @@
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZP5-xR-CSR">
                                 <rect key="frame" x="113" y="43" width="61" height="18"/>
                                 <buttonCell key="cell" type="check" title="IPSW" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Ey3-cY-nmo">
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -772,6 +781,7 @@
                                 </connections>
                             </button>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6f-xd-mNr">
                                 <rect key="frame" x="86" y="36" width="309" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Make sure the target device is on and plugged in." id="bKu-Gz-tDC">
@@ -780,6 +790,8 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+=======
+>>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
                         </subviews>

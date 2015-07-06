@@ -5,16 +5,26 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>EEF17E49-D897-4E47-9C86-088B1F7D624A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>project</string>
+=======
+	<string>8C7C31D0-A331-4115-BDA4-BD7C0CD67FF2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iDowngrade</string>
+>>>>>>> FETCH_HEAD
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E5E93C542A24907DD8E7572710A97A5BE8077F0A</key>
 		<string>https://github.com/128keaton/iDowngrade.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
+<<<<<<< HEAD
 	<string>iDowngrade.xcodeproj/project.xcworkspace</string>
+=======
+	<string>iDowngrade.xcodeproj</string>
+>>>>>>> FETCH_HEAD
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E5E93C542A24907DD8E7572710A97A5BE8077F0A</key>
