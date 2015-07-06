@@ -20,9 +20,10 @@
 		8A01A6741B4A07660010F111 /* idevicerestore in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6701B4A07660010F111 /* idevicerestore */; };
 		8A01A6751B4A07660010F111 /* ipsw in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6711B4A07660010F111 /* ipsw */; };
 		8A01A6761B4A07660010F111 /* xpwntool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6721B4A07660010F111 /* xpwntool */; };
-		8A01A6781B4A07730010F111 /* shsh in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6771B4A07720010F111 /* shsh */; };
 		8A01A67A1B4A07790010F111 /* kloader in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6791B4A07790010F111 /* kloader */; };
 		8A01A6841B4A3AB70010F111 /* shsh-drop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6831B4A3AB70010F111 /* shsh-drop.png */; };
+		8A01A6871B4B20E60010F111 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A01A6861B4B20E60010F111 /* STPrivilegedTask.m */; };
+		8A01A6891B4B27C60010F111 /* sshtool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6881B4B27C60010F111 /* sshtool */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,9 +69,11 @@
 		8A01A6701B4A07660010F111 /* idevicerestore */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = idevicerestore; sourceTree = "<group>"; };
 		8A01A6711B4A07660010F111 /* ipsw */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ipsw; sourceTree = "<group>"; };
 		8A01A6721B4A07660010F111 /* xpwntool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = xpwntool; sourceTree = "<group>"; };
-		8A01A6771B4A07720010F111 /* shsh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shsh; sourceTree = "<group>"; };
 		8A01A6791B4A07790010F111 /* kloader */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = kloader; sourceTree = "<group>"; };
 		8A01A6831B4A3AB70010F111 /* shsh-drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shsh-drop.png"; sourceTree = "<group>"; };
+		8A01A6851B4B20E60010F111 /* STPrivilegedTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPrivilegedTask.h; sourceTree = "<group>"; };
+		8A01A6861B4B20E60010F111 /* STPrivilegedTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPrivilegedTask.m; sourceTree = "<group>"; };
+		8A01A6881B4B27C60010F111 /* sshtool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sshtool; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 		8A01A6191B48F1850010F111 /* iDowngrade */ = {
 			isa = PBXGroup;
 			children = (
+				8A01A6851B4B20E60010F111 /* STPrivilegedTask.h */,
+				8A01A6861B4B20E60010F111 /* STPrivilegedTask.m */,
 				8A01A6831B4A3AB70010F111 /* shsh-drop.png */,
 				8A01A66C1B49D2810010F111 /* DragView.h */,
 				8A01A66D1B49D2810010F111 /* DragView.m */,
@@ -158,8 +163,8 @@
 		8A01A6431B48F4F70010F111 /* pwn-stuff */ = {
 			isa = PBXGroup;
 			children = (
+				8A01A6881B4B27C60010F111 /* sshtool */,
 				8A01A6791B4A07790010F111 /* kloader */,
-				8A01A6771B4A07720010F111 /* shsh */,
 				8A01A66F1B4A07660010F111 /* FirmwareBundles */,
 				8A01A6701B4A07660010F111 /* idevicerestore */,
 				8A01A6711B4A07660010F111 /* ipsw */,
@@ -254,10 +259,10 @@
 				8A01A6281B48F1850010F111 /* Main.storyboard in Resources */,
 				8A01A6731B4A07660010F111 /* FirmwareBundles in Resources */,
 				8A01A6761B4A07660010F111 /* xpwntool in Resources */,
-				8A01A6781B4A07730010F111 /* shsh in Resources */,
 				8A01A6741B4A07660010F111 /* idevicerestore in Resources */,
 				8A01A6841B4A3AB70010F111 /* shsh-drop.png in Resources */,
 				8A01A6751B4A07660010F111 /* ipsw in Resources */,
+				8A01A6891B4B27C60010F111 /* sshtool in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A01A6231B48F1850010F111 /* ViewController.m in Sources */,
+				8A01A6871B4B20E60010F111 /* STPrivilegedTask.m in Sources */,
 				8A01A6201B48F1850010F111 /* main.m in Sources */,
 				8A01A66E1B49D2810010F111 /* DragView.m in Sources */,
 				8A01A61E1B48F1850010F111 /* AppDelegate.m in Sources */,
@@ -480,6 +486,7 @@
 				8A01A6391B48F1850010F111 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A01A63A1B48F1850010F111 /* Build configuration list for PBXNativeTarget "iDowngradeTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +495,7 @@
 				8A01A63C1B48F1850010F111 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -11,7 +11,7 @@
 @implementation DragView
 
 @dynamic isHighlighted;
-
+@synthesize window;
 - (void)awakeFromNib {
     NSLog(@"[%@ %@]", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     [self registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
@@ -40,6 +40,7 @@
                 [self.ipswCheck setState:NSOnState];
                 
                 [self.ipswCheck performClick:self];
+                self.actionLabel.stringValue = [self.actionLabel.stringValue stringByAppendingString:@"IPSW selected and ready. "];
                 NSLog(@"ipsw found");
                 return NSDragOperationCopy;
                 
@@ -47,6 +48,7 @@
             }else if([[path pathExtension] isEqual: @"shsh"]){
                 [defaults setObject:path forKey:@"shshBlobs"];
                 [self setHighlighted:YES];
+                self.actionLabel.stringValue = [self.actionLabel.stringValue stringByAppendingString:@"SHSH selected and ready. "];
                   [self.ipswCheck performClick:self];
                 return NSDragOperationCopy;
                 
@@ -95,22 +97,6 @@
      [self drawBorder:dirtyRect lineWidth:2.0];
     [[NSImage imageNamed:@"shsh-drop.png"] drawInRect:dirtyRect];
 
-}
--(IBAction)clearValue:(NSButton *)sender{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if(sender == self.ipswCheck){
-        [defaults removeObjectForKey:@"oldFirmware"];
-    }else{
-        [defaults removeObjectForKey:@"shshBlobs"];
-        
-    }
-    if (sender == [NSButton class]) {
-   
-    if (sender.state == 1) {
-        sender.state = 0;
-    }
-    }
-    [defaults synchronize];
 }
 -(void)setButtonState:(NSButton *)button state:(NSInteger)state{
     switch (state) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -689,12 +689,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="326"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="0Hr-Zc-Eas">
+                                <rect key="frame" x="333" y="78" width="16" height="16"/>
+                            </progressIndicator>
                             <customView focusRingType="exterior" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dob-2O-euG" customClass="DragView">
                                 <rect key="frame" x="34" y="118" width="412" height="188"/>
                             </customView>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GL7-8g-pM3">
+<<<<<<< HEAD
                                 <rect key="frame" x="45" y="73" width="200" height="26"/>
+                                <popUpButtonCell key="cell" type="push" title="Make IPSW" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="gBi-yh-bIv" id="JUY-Za-Jq7">
+=======
+                                <rect key="frame" x="113" y="73" width="200" height="26"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="JUY-Za-Jq7">
+>>>>>>> FETCH_HEAD
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" title="Make IPSW" id="3DA-fj-BaN">
@@ -706,6 +714,9 @@
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Make custom iBSS" id="GNd-8d-c4m"/>
+                                            <menuItem title="Send iBSS" state="on" id="Osy-Dv-U7A">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -714,7 +725,7 @@
                                 </connections>
                             </popUpButton>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tFO-lh-Kvh">
-                                <rect key="frame" x="244" y="69" width="59" height="32"/>
+                                <rect key="frame" x="312" y="69" width="59" height="32"/>
                                 <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gcm-ET-Lz4">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -723,43 +734,70 @@
                                     <action selector="goButtonAction:" target="XfG-lQ-9wD" id="jaf-eu-IC7"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <button fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgs-QB-iw9">
-                                <rect key="frame" x="378" y="89" width="57" height="14"/>
+                                <rect key="frame" x="376" y="87" width="61" height="18"/>
                                 <buttonCell key="cell" type="check" title="IPSW" bezelStyle="regularSquare" imagePosition="left" alignment="left" refusesFirstResponder="YES" userInterfaceLayoutDirection="rightToLeft" allowsMixedState="YES" inset="2" id="Sl5-ud-glL">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="clearValue:" target="1qJ-8n-3WL" id="bJt-fI-849"/>
-                                </connections>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ymk-zy-k7r">
-                                <rect key="frame" x="376" y="67" width="61" height="18"/>
-                                <buttonCell key="cell" type="check" title="SHSH" bezelStyle="regularSquare" imagePosition="left" alignment="left" userInterfaceLayoutDirection="rightToLeft" inset="2" id="1XP-yb-VAp">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="clearValue:" target="1qJ-8n-3WL" id="5iO-rA-f3m"/>
-                                </connections>
-                            </button>
+=======
                             <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="0Hr-Zc-Eas">
-                                <rect key="frame" x="333" y="78" width="16" height="16"/>
+                                <rect key="frame" x="395" y="78" width="16" height="16"/>
                             </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9aP-eR-aZb">
+                                <rect key="frame" x="32" y="20" width="416" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Thanks to @tihmstar for writing OdysseusOTA tool." id="S7H-y2-Y24">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZP5-xR-CSR">
+                                <rect key="frame" x="113" y="43" width="61" height="18"/>
+                                <buttonCell key="cell" type="check" title="IPSW" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Ey3-cY-nmo">
+>>>>>>> FETCH_HEAD
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clearValue:" target="XfG-lQ-9wD" id="DQT-7w-LsV"/>
+                                </connections>
+                            </button>
+                            <button fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wLx-Il-dXd">
+                                <rect key="frame" x="311" y="43" width="61" height="18"/>
+                                <buttonCell key="cell" type="check" title="SHSH" bezelStyle="regularSquare" imagePosition="left" inset="2" id="WMa-NL-6kO">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clearValue:" target="XfG-lQ-9wD" id="Of0-Vx-aEb"/>
+                                </connections>
+                            </button>
+<<<<<<< HEAD
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6f-xd-mNr">
+                                <rect key="frame" x="86" y="36" width="309" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Make sure the target device is on and plugged in." id="bKu-Gz-tDC">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+=======
+>>>>>>> FETCH_HEAD
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="actionLabel" destination="9aP-eR-aZb" id="dAl-HT-5bg"/>
                         <outlet property="goButton" destination="tFO-lh-Kvh" id="HOZ-Hv-Iiv"/>
+                        <outlet property="ipswCheck" destination="ZP5-xR-CSR" id="dmL-qg-rjq"/>
                         <outlet property="ipswProgress" destination="0Hr-Zc-Eas" id="ttd-HU-L5Z"/>
                         <outlet property="progressIndicator" destination="0Hr-Zc-Eas" id="kMH-UX-sV1"/>
+                        <outlet property="shshCheck" destination="wLx-Il-dXd" id="UoQ-rr-mgB"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="zOk-Fe-tO4" customClass="SUUpdater"/>
                 <customObject id="1qJ-8n-3WL" customClass="DragView">
                     <connections>
-                        <outlet property="ipswCheck" destination="qgs-QB-iw9" id="Emj-6C-hoq"/>
-                        <outlet property="shshCheck" destination="Ymk-zy-k7r" id="4Nr-Qv-h8h"/>
+                        <outlet property="actionLabel" destination="9aP-eR-aZb" id="aSG-ST-7rS"/>
                     </connections>
                 </customObject>
             </objects>

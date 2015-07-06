@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "STPrivilegedTask.h"
 @interface ViewController(){
     NSString *temporaryFilePath;
     NSUserDefaults *defaults;
@@ -245,7 +245,8 @@
  
     NSString *outputPath = [NSString stringWithFormat:@"%@/pwnediBSS", temporaryFilePath];
     [task setLaunchPath:[NSString stringWithFormat:@"%@/xpwntool",[[NSBundle mainBundle]resourcePath]]];
-    
+    [defaults setObject:outputPath forKey:@"bss"];
+    [defaults synchronize];
     task.arguments  = @[iBSS, outputPath];
     
     
@@ -254,12 +255,42 @@
     
     [task launch];
     currentTask = task;
+    NSError *error;
+    if([fileManager fileExistsAtPath:[@"~/Desktop/pwnediBSS" stringByExpandingTildeInPath] isDirectory:NO])
+        [fileManager removeItemAtPath:[@"~/Desktop/pwnediBSS" stringByExpandingTildeInPath] error:&error];
+    
+    [fileManager copyItemAtPath:outputPath toPath:[@"~/Desktop/pwnediBSS" stringByExpandingTildeInPath] error:&error];
+    if (error) {
+        NSLog(@"Couldnt copy file: %@", error);
+    }
+    
     [self cleanup];
 
   
     
     
 }
+-(void)sendiBSS{
+
+
+    
+    NSString *fullScript = [NSString stringWithFormat:@"%@/sshtool -k %@/kloader -b %@ -p 22 10.0.0.43", [[NSBundle mainBundle]resourcePath], [[NSBundle mainBundle]resourcePath], [defaults objectForKey:@"bss"]];
+    
+    NSString *s = [NSString stringWithFormat:
+                   @"tell application \"Terminal\" to do script \"%@\"", fullScript];
+    
+    NSAppleScript *as = [[NSAppleScript alloc] initWithSource: s];
+    [as executeAndReturnError:nil];
+    
+    
+
+    
+
+    
+    
+     
+     }
+
 -(void)cleanup{
     
     NSFileManager *fileManager = [NSFileManager new];
@@ -325,6 +356,9 @@
         case 2:
             [self makePwnediBSS];
             break;
+        case 3:
+            [self sendiBSS];
+            break;
             
         default:
             break;
@@ -335,10 +369,24 @@
     // Get the user defaults
     NSUserDefaults *localDefaults = (NSUserDefaults *)[notification object];
     
-    if ([localDefaults objectForKey:@"oldFirmware"] != nil && [localDefaults objectForKey:@"shshBlobs"] != nil) {
+    if ([localDefaults objectForKey:@"oldFirmware"] != nil) {
         self.goButton.enabled = YES;
     }else{
         self.goButton.enabled = NO;
+    }
+    
+    if ([localDefaults objectForKey:@"oldFirmware"] != nil) {
+        if([self.actionLabel.stringValue containsString:@"Thanks"])
+            self.actionLabel.stringValue = @"";
+        self.actionLabel.stringValue = [self.actionLabel.stringValue stringByAppendingString:@"IPSW selected and ready. "];
+        self.ipswCheck.state = 1;
+    }else if([localDefaults objectForKey:@"shshBlobs"] != nil){
+        if([self.actionLabel.stringValue containsString:@"Thanks"])
+            self.actionLabel.stringValue = @"";
+        
+          self.actionLabel.stringValue = [self.actionLabel.stringValue stringByAppendingString:@"SHSH selected and ready. "];
+          self.shshCheck.state = 1;
+        
     }
 }
 
@@ -348,6 +396,25 @@
 
     // Update the view, if already loaded.
 }
+
+-(IBAction)clearValue:(NSButton *)sender{
+
+    if(sender == self.ipswCheck){
+        [defaults removeObjectForKey:@"oldFirmware"];
+
+    }else if(self.shshCheck){
+        [defaults removeObjectForKey:@"shshBlobs"];
+        
+    }
+        self.actionLabel.stringValue = @"Thanks to @tihmstar for writing OdysseusOTA";
+        
+        if (sender.state == 1) {
+            sender.state = 0;
+        }
+    
+    [defaults synchronize];
+
+  }
 
 
 
