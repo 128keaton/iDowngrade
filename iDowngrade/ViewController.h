@@ -17,6 +17,10 @@
 @property (weak) IBOutlet NSButton *goButton;
 
 
+@property (weak) IBOutlet NSTextField *actionLabel;
+@property (weak) IBOutlet NSButton *shshCheck;
+@property (weak) IBOutlet NSButton *ipswCheck;
+
 
 @end
 

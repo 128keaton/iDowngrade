@@ -335,10 +335,24 @@
     // Get the user defaults
     NSUserDefaults *localDefaults = (NSUserDefaults *)[notification object];
     
-    if ([localDefaults objectForKey:@"oldFirmware"] != nil && [localDefaults objectForKey:@"shshBlobs"] != nil) {
+    if ([localDefaults objectForKey:@"oldFirmware"] != nil) {
         self.goButton.enabled = YES;
     }else{
         self.goButton.enabled = NO;
+    }
+    
+    if ([localDefaults objectForKey:@"oldFirmware"] != nil) {
+        if([self.actionLabel.stringValue containsString:@"Thanks"])
+            self.actionLabel.stringValue = @"";
+        self.actionLabel.stringValue = [self.actionLabel.stringValue stringByAppendingString:@"IPSW selected and ready. "];
+        self.ipswCheck.state = 1;
+    }else if([localDefaults objectForKey:@"shshBlobs"] != nil){
+        if([self.actionLabel.stringValue containsString:@"Thanks"])
+            self.actionLabel.stringValue = @"";
+        
+          self.actionLabel.stringValue = [self.actionLabel.stringValue stringByAppendingString:@"SHSH selected and ready. "];
+          self.shshCheck.state = 1;
+        
     }
 }
 
@@ -348,6 +362,25 @@
 
     // Update the view, if already loaded.
 }
+
+-(IBAction)clearValue:(NSButton *)sender{
+
+    if(sender == self.ipswCheck){
+        [defaults removeObjectForKey:@"oldFirmware"];
+
+    }else if(self.shshCheck){
+        [defaults removeObjectForKey:@"shshBlobs"];
+        
+    }
+        self.actionLabel.stringValue = @"Thanks to @tihmstar for writing OdysseusOTA";
+        
+        if (sender.state == 1) {
+            sender.state = 0;
+        }
+    
+    [defaults synchronize];
+
+  }
 
 
 
