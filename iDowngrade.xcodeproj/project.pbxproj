@@ -249,9 +249,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AA47E7E1B4AD88600C6AC21 /* shsh in Resources */,
 				8A01A6251B48F1850010F111 /* Images.xcassets in Resources */,
 				8A01A67A1B4A07790010F111 /* kloader in Resources */,
+				8AA47E7E1B4AD88600C6AC21 /* shsh in Resources */,
 				8A01A6281B48F1850010F111 /* Main.storyboard in Resources */,
 				8A01A6731B4A07660010F111 /* FirmwareBundles in Resources */,
 				8A01A6761B4A07660010F111 /* xpwntool in Resources */,
