@@ -12,7 +12,7 @@
 }
 
 @property (assign, setter=setHighlighted:) BOOL isHighlighted;
-@property (weak) IBOutlet NSWindow *window;
+@property (weak, readonly) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSButton *ipswCheck;
 @property (weak) IBOutlet NSButton *shshCheck;
 @property (weak) IBOutlet NSTextField *actionLabel;

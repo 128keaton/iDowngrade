@@ -11,7 +11,7 @@
 @implementation DragView
 
 @dynamic isHighlighted;
-
+@synthesize window;
 - (void)awakeFromNib {
     NSLog(@"[%@ %@]", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     [self registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
