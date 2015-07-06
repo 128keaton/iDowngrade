@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8C7C31D0-A331-4115-BDA4-BD7C0CD67FF2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iDowngrade</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E5E93C542A24907DD8E7572710A97A5BE8077F0A</key>
+		<string>https://github.com/128keaton/iDowngrade.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iDowngrade.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E5E93C542A24907DD8E7572710A97A5BE8077F0A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/128keaton/iDowngrade.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E5E93C542A24907DD8E7572710A97A5BE8077F0A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E5E93C542A24907DD8E7572710A97A5BE8077F0A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iDowngrade</string>
+		</dict>
+	</array>
+</dict>
+</plist>
