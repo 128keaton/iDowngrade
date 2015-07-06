@@ -22,7 +22,6 @@
 		8A01A6761B4A07660010F111 /* xpwntool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6721B4A07660010F111 /* xpwntool */; };
 		8A01A67A1B4A07790010F111 /* kloader in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6791B4A07790010F111 /* kloader */; };
 		8A01A6841B4A3AB70010F111 /* shsh-drop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6831B4A3AB70010F111 /* shsh-drop.png */; };
-		8AA47E7E1B4AD88600C6AC21 /* shsh in Resources */ = {isa = PBXBuildFile; fileRef = 8AA47E7D1B4AD88600C6AC21 /* shsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +69,6 @@
 		8A01A6721B4A07660010F111 /* xpwntool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = xpwntool; sourceTree = "<group>"; };
 		8A01A6791B4A07790010F111 /* kloader */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = kloader; sourceTree = "<group>"; };
 		8A01A6831B4A3AB70010F111 /* shsh-drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shsh-drop.png"; sourceTree = "<group>"; };
-		8AA47E7D1B4AD88600C6AC21 /* shsh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				8A01A6791B4A07790010F111 /* kloader */,
-				8AA47E7D1B4AD88600C6AC21 /* shsh */,
 				8A01A66F1B4A07660010F111 /* FirmwareBundles */,
 				8A01A6701B4A07660010F111 /* idevicerestore */,
 				8A01A6711B4A07660010F111 /* ipsw */,
@@ -251,7 +248,6 @@
 			files = (
 				8A01A6251B48F1850010F111 /* Images.xcassets in Resources */,
 				8A01A67A1B4A07790010F111 /* kloader in Resources */,
-				8AA47E7E1B4AD88600C6AC21 /* shsh in Resources */,
 				8A01A6281B48F1850010F111 /* Main.storyboard in Resources */,
 				8A01A6731B4A07660010F111 /* FirmwareBundles in Resources */,
 				8A01A6761B4A07660010F111 /* xpwntool in Resources */,
