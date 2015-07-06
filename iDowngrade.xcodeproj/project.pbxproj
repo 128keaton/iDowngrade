@@ -15,16 +15,14 @@
 		8A01A6341B48F1850010F111 /* iDowngradeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A01A6331B48F1850010F111 /* iDowngradeTests.m */; };
 		8A01A63E1B48F1D70010F111 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01A63D1B48F1D70010F111 /* Sparkle.framework */; };
 		8A01A6401B48F1FA0010F111 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A01A63D1B48F1D70010F111 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A01A6611B48FBA50010F111 /* FirmwareBundles in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6581B48FBA50010F111 /* FirmwareBundles */; };
-		8A01A6621B48FBA50010F111 /* idevicerestore in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6591B48FBA50010F111 /* idevicerestore */; };
-		8A01A6631B48FBA50010F111 /* ipsw in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65A1B48FBA50010F111 /* ipsw */; };
-		8A01A6641B48FBA50010F111 /* irecovery in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65B1B48FBA50010F111 /* irecovery */; };
-		8A01A6651B48FBA50010F111 /* shsh in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65C1B48FBA50010F111 /* shsh */; };
-		8A01A6661B48FBA50010F111 /* sshtool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65D1B48FBA50010F111 /* sshtool */; };
-		8A01A6671B48FBA50010F111 /* ticket in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65E1B48FBA50010F111 /* ticket */; };
-		8A01A6681B48FBA50010F111 /* validate in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A65F1B48FBA50010F111 /* validate */; };
-		8A01A6691B48FBA50010F111 /* xpwntool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6601B48FBA50010F111 /* xpwntool */; };
-		8A01A66B1B4910BF0010F111 /* movebss.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A66A1B4910BF0010F111 /* movebss.sh */; };
+		8A01A66E1B49D2810010F111 /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A01A66D1B49D2810010F111 /* DragView.m */; };
+		8A01A6731B4A07660010F111 /* FirmwareBundles in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A66F1B4A07660010F111 /* FirmwareBundles */; };
+		8A01A6741B4A07660010F111 /* idevicerestore in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6701B4A07660010F111 /* idevicerestore */; };
+		8A01A6751B4A07660010F111 /* ipsw in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6711B4A07660010F111 /* ipsw */; };
+		8A01A6761B4A07660010F111 /* xpwntool in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6721B4A07660010F111 /* xpwntool */; };
+		8A01A6781B4A07730010F111 /* shsh in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6771B4A07720010F111 /* shsh */; };
+		8A01A67A1B4A07790010F111 /* kloader in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6791B4A07790010F111 /* kloader */; };
+		8A01A6841B4A3AB70010F111 /* shsh-drop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A01A6831B4A3AB70010F111 /* shsh-drop.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,16 +62,15 @@
 		8A01A6321B48F1850010F111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A01A6331B48F1850010F111 /* iDowngradeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDowngradeTests.m; sourceTree = "<group>"; };
 		8A01A63D1B48F1D70010F111 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		8A01A6581B48FBA50010F111 /* FirmwareBundles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FirmwareBundles; sourceTree = "<group>"; };
-		8A01A6591B48FBA50010F111 /* idevicerestore */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = idevicerestore; sourceTree = "<group>"; };
-		8A01A65A1B48FBA50010F111 /* ipsw */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ipsw; sourceTree = "<group>"; };
-		8A01A65B1B48FBA50010F111 /* irecovery */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = irecovery; sourceTree = "<group>"; };
-		8A01A65C1B48FBA50010F111 /* shsh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shsh; sourceTree = "<group>"; };
-		8A01A65D1B48FBA50010F111 /* sshtool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = sshtool; sourceTree = "<group>"; };
-		8A01A65E1B48FBA50010F111 /* ticket */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ticket; sourceTree = "<group>"; };
-		8A01A65F1B48FBA50010F111 /* validate */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = validate; sourceTree = "<group>"; };
-		8A01A6601B48FBA50010F111 /* xpwntool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = xpwntool; sourceTree = "<group>"; };
-		8A01A66A1B4910BF0010F111 /* movebss.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = movebss.sh; sourceTree = "<group>"; };
+		8A01A66C1B49D2810010F111 /* DragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
+		8A01A66D1B49D2810010F111 /* DragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragView.m; sourceTree = "<group>"; };
+		8A01A66F1B4A07660010F111 /* FirmwareBundles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FirmwareBundles; sourceTree = "<group>"; };
+		8A01A6701B4A07660010F111 /* idevicerestore */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = idevicerestore; sourceTree = "<group>"; };
+		8A01A6711B4A07660010F111 /* ipsw */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ipsw; sourceTree = "<group>"; };
+		8A01A6721B4A07660010F111 /* xpwntool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = xpwntool; sourceTree = "<group>"; };
+		8A01A6771B4A07720010F111 /* shsh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shsh; sourceTree = "<group>"; };
+		8A01A6791B4A07790010F111 /* kloader */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = kloader; sourceTree = "<group>"; };
+		8A01A6831B4A3AB70010F111 /* shsh-drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shsh-drop.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +113,9 @@
 		8A01A6191B48F1850010F111 /* iDowngrade */ = {
 			isa = PBXGroup;
 			children = (
+				8A01A6831B4A3AB70010F111 /* shsh-drop.png */,
+				8A01A66C1B49D2810010F111 /* DragView.h */,
+				8A01A66D1B49D2810010F111 /* DragView.m */,
 				8A01A6431B48F4F70010F111 /* pwn-stuff */,
 				8A01A61C1B48F1850010F111 /* AppDelegate.h */,
 				8A01A61D1B48F1850010F111 /* AppDelegate.m */,
@@ -158,16 +158,12 @@
 		8A01A6431B48F4F70010F111 /* pwn-stuff */ = {
 			isa = PBXGroup;
 			children = (
-				8A01A66A1B4910BF0010F111 /* movebss.sh */,
-				8A01A6581B48FBA50010F111 /* FirmwareBundles */,
-				8A01A6591B48FBA50010F111 /* idevicerestore */,
-				8A01A65A1B48FBA50010F111 /* ipsw */,
-				8A01A65B1B48FBA50010F111 /* irecovery */,
-				8A01A65C1B48FBA50010F111 /* shsh */,
-				8A01A65D1B48FBA50010F111 /* sshtool */,
-				8A01A65E1B48FBA50010F111 /* ticket */,
-				8A01A65F1B48FBA50010F111 /* validate */,
-				8A01A6601B48FBA50010F111 /* xpwntool */,
+				8A01A6791B4A07790010F111 /* kloader */,
+				8A01A6771B4A07720010F111 /* shsh */,
+				8A01A66F1B4A07660010F111 /* FirmwareBundles */,
+				8A01A6701B4A07660010F111 /* idevicerestore */,
+				8A01A6711B4A07660010F111 /* ipsw */,
+				8A01A6721B4A07660010F111 /* xpwntool */,
 			);
 			name = "pwn-stuff";
 			sourceTree = "<group>";
@@ -253,18 +249,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A01A6681B48FBA50010F111 /* validate in Resources */,
 				8A01A6251B48F1850010F111 /* Images.xcassets in Resources */,
+				8A01A67A1B4A07790010F111 /* kloader in Resources */,
 				8A01A6281B48F1850010F111 /* Main.storyboard in Resources */,
-				8A01A6611B48FBA50010F111 /* FirmwareBundles in Resources */,
-				8A01A6671B48FBA50010F111 /* ticket in Resources */,
-				8A01A6661B48FBA50010F111 /* sshtool in Resources */,
-				8A01A66B1B4910BF0010F111 /* movebss.sh in Resources */,
-				8A01A6621B48FBA50010F111 /* idevicerestore in Resources */,
-				8A01A6651B48FBA50010F111 /* shsh in Resources */,
-				8A01A6691B48FBA50010F111 /* xpwntool in Resources */,
-				8A01A6631B48FBA50010F111 /* ipsw in Resources */,
-				8A01A6641B48FBA50010F111 /* irecovery in Resources */,
+				8A01A6731B4A07660010F111 /* FirmwareBundles in Resources */,
+				8A01A6761B4A07660010F111 /* xpwntool in Resources */,
+				8A01A6781B4A07730010F111 /* shsh in Resources */,
+				8A01A6741B4A07660010F111 /* idevicerestore in Resources */,
+				8A01A6841B4A3AB70010F111 /* shsh-drop.png in Resources */,
+				8A01A6751B4A07660010F111 /* ipsw in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +277,7 @@
 			files = (
 				8A01A6231B48F1850010F111 /* ViewController.m in Sources */,
 				8A01A6201B48F1850010F111 /* main.m in Sources */,
+				8A01A66E1B49D2810010F111 /* DragView.m in Sources */,
 				8A01A61E1B48F1850010F111 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

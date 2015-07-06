@@ -673,6 +673,11 @@
                         <outlet property="window" destination="IQv-IB-iLA" id="x9o-FN-f9A"/>
                     </connections>
                 </customObject>
+                <customObject id="FYO-aK-aQo" customClass="DragView">
+                    <connections>
+                        <outlet property="window" destination="IQv-IB-iLA" id="LNd-Ae-Qd6"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
@@ -681,97 +686,84 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="326"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DcY-dU-Ulv">
-                                <rect key="frame" x="134" y="186" width="311" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="CH1-9c-STJ">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A2L-AL-WZv">
-                                <rect key="frame" x="163" y="111" width="155" height="32"/>
-                                <buttonCell key="cell" type="push" title="Make IPSW" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U93-Sg-vDm">
+                            <customView focusRingType="exterior" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dob-2O-euG" customClass="DragView">
+                                <rect key="frame" x="34" y="118" width="412" height="188"/>
+                            </customView>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GL7-8g-pM3">
+                                <rect key="frame" x="45" y="73" width="200" height="26"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="JUY-Za-Jq7">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" title="Make IPSW" id="3DA-fj-BaN">
+                                        <items>
+                                            <menuItem title="Make IPSW" id="gBi-yh-bIv">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Extract SHSH" id="UsX-Ms-x9o">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Make custom iBSS" id="GNd-8d-c4m"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="selectedValue:" target="XfG-lQ-9wD" id="JCn-pr-g0D"/>
+                                </connections>
+                            </popUpButton>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tFO-lh-Kvh">
+                                <rect key="frame" x="244" y="69" width="59" height="32"/>
+                                <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gcm-ET-Lz4">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="downgradeDevice:" target="XfG-lQ-9wD" id="qJk-hs-mey"/>
+                                    <action selector="goButtonAction:" target="XfG-lQ-9wD" id="jaf-eu-IC7"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gU2-S6-v6K">
-                                <rect key="frame" x="163" y="78" width="155" height="32"/>
-                                <buttonCell key="cell" type="push" title="Move/Fetch Blob" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ngT-0t-jLt">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <button fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgs-QB-iw9">
+                                <rect key="frame" x="376" y="87" width="61" height="18"/>
+                                <buttonCell key="cell" type="bevel" title="IPSW" bezelStyle="regularSquare" imagePosition="left" alignment="left" refusesFirstResponder="YES" userInterfaceLayoutDirection="rightToLeft" allowsMixedState="YES" inset="2" id="Sl5-ud-glL">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" accelerator="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="fetchSHSH:" target="XfG-lQ-9wD" id="NZL-fk-cLX"/>
+                                    <action selector="clearValue:" target="1qJ-8n-3WL" id="bJt-fI-849"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfW-3h-Huh">
-                                <rect key="frame" x="34" y="189" width="78" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Firmware:" id="Qn8-W9-hbK">
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ymk-zy-k7r">
+                                <rect key="frame" x="376" y="67" width="61" height="18"/>
+                                <buttonCell key="cell" type="check" title="SHSH" bezelStyle="regularSquare" imagePosition="left" alignment="left" userInterfaceLayoutDirection="rightToLeft" inset="2" id="1XP-yb-VAp">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eu8-fg-fmW">
-                                <rect key="frame" x="134" y="156" width="311" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="HOU-96-cI8">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Pe-Da-fMh">
-                                <rect key="frame" x="34" y="159" width="78" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="SHSH Blob" id="y0k-tC-gvd">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="vno-9f-RgO">
-                                <rect key="frame" x="323" y="87" width="16" height="16"/>
-                            </progressIndicator>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clearValue:" target="1qJ-8n-3WL" id="5iO-rA-f3m"/>
+                                </connections>
+                            </button>
                             <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="0Hr-Zc-Eas">
-                                <rect key="frame" x="323" y="120" width="16" height="16"/>
-                            </progressIndicator>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psI-vs-gjg">
-                                <rect key="frame" x="163" y="46" width="155" height="32"/>
-                                <buttonCell key="cell" type="push" title="Make pwned iBSS" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sgk-gw-NZ2">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                </buttonCell>
-                            </button>
-                            <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="UAu-5R-cXo">
-                                <rect key="frame" x="323" y="55" width="16" height="16"/>
+                                <rect key="frame" x="333" y="78" width="16" height="16"/>
                             </progressIndicator>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="firmwareField" destination="DcY-dU-Ulv" id="Rc2-5c-UY8"/>
-                        <outlet property="ibssProgess" destination="UAu-5R-cXo" id="TSc-Rj-6P3"/>
+                        <outlet property="goButton" destination="tFO-lh-Kvh" id="HOZ-Hv-Iiv"/>
                         <outlet property="ipswProgress" destination="0Hr-Zc-Eas" id="ttd-HU-L5Z"/>
-                        <outlet property="shshField" destination="eu8-fg-fmW" id="gN5-3i-snE"/>
-                        <outlet property="shshProgress" destination="vno-9f-RgO" id="AWU-5g-qG3"/>
+                        <outlet property="progressIndicator" destination="0Hr-Zc-Eas" id="kMH-UX-sV1"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="zOk-Fe-tO4" customClass="SUUpdater"/>
+                <customObject id="1qJ-8n-3WL" customClass="DragView">
+                    <connections>
+                        <outlet property="ipswCheck" destination="qgs-QB-iw9" id="Emj-6C-hoq"/>
+                        <outlet property="shshCheck" destination="Ymk-zy-k7r" id="4Nr-Qv-h8h"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="683"/>
         </scene>
     </scenes>
 </document>

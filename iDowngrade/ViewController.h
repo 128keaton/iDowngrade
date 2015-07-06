@@ -8,15 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController <NSDraggingSource, NSDraggingDestination, NSPasteboardItemDataProvider>
+@interface ViewController : NSViewController
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *firmwareField;
 @property (weak) IBOutlet NSTextField *shshField;
-@property (weak) IBOutlet NSProgressIndicator *ipswProgress;
-@property (weak) IBOutlet NSProgressIndicator *shshProgress;
-@property (weak) IBOutlet NSProgressIndicator *ibssProgess;
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 
-- (id)initWithCoder:(NSCoder *)coder;
+@property (weak) IBOutlet NSButton *goButton;
+
+
 
 @end
 

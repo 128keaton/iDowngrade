@@ -18,10 +18,20 @@
 @implementation ViewController
 
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.view registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
     [self setupEnviroment];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self
+               selector:@selector(defaultsChanged:)
+                   name:NSUserDefaultsDidChangeNotification
+                 object:nil];
+
+    
     // Do any additional setup after loading the view.
 }
 -(void)setupEnviroment{
@@ -54,13 +64,7 @@
     
     
 }
--(void)fetchFirmware{
-    //Fetch old 6.1.3 firmware
-    
-    [defaults setObject:[self.firmwareField.stringValue stringByReplacingOccurrencesOfString:@" " withString:@" "] forKey:@"pre-hacked-firmware"];
-    [defaults synchronize];
-    
-}
+
 -(void)movePrerequisites{
     NSFileManager *fileManager = [NSFileManager new];
     NSError *errorRemovingOldFirmwareBundles;
@@ -95,8 +99,8 @@
     
 }
 
-- (IBAction)downgradeDevice:(id)sender {
-    [self fetchFirmware];
+- (void)downgradeDevice{
+   
     [self movePrerequisites];
     
     NSTask *task = [[NSTask alloc] init];
@@ -110,7 +114,7 @@
     NSString *launchPath = [[[NSBundle mainBundle]resourcePath] stringByAppendingString:@"/ipsw"];
     
     [task setLaunchPath: launchPath];
-    task.arguments  = @[[defaults objectForKey:@"pre-hacked-firmware"], firmwarePath, @"-bbupdate"];
+    task.arguments  = @[[defaults objectForKey:@"oldFirmware"], firmwarePath, @"-bbupdate"];
     NSLog(@"Task arguments: %@", task.arguments);
     
 
@@ -118,21 +122,23 @@
     [task setStandardInput:[NSPipe pipe]];
     [defaults synchronize];
     currentTask = task;
-    self.ipswProgress.hidden = NO;
-    [self.ipswProgress startAnimation:nil];
+    self.progressIndicator.hidden = NO;
+    [self.progressIndicator startAnimation:nil];
     
     [task launch];
     [task waitUntilExit];
     
-    self.ipswProgress.hidden = YES;
-    [self.ipswProgress stopAnimation:nil];
+    self.progressIndicator.hidden = YES;
+    [self.progressIndicator stopAnimation:nil];
+    [defaults removeObjectForKey:@"oldFirmware"];
+    
     
 
     
 }
--(IBAction)fetchSHSH:(id)sender{
+-(void)fetchSHSH{
     //Check if user specified custom blobs
-    if(_shshField.stringValue.length < 1){
+    if([defaults objectForKey:@"shshBlobs"]!=nil){
         
     
         NSTask *task = [[NSTask alloc] init];
@@ -152,16 +158,18 @@
         [task setStandardInput:[NSPipe pipe]];
         [defaults synchronize];
         currentTask = task;
-        self.shshProgress.hidden = NO;
-        [self.shshProgress startAnimation:nil];
+        self.progressIndicator.hidden = NO;
+        [self.progressIndicator startAnimation:nil];
         [task launch];
         [task waitUntilExit];
         
-        self.shshProgress.hidden = YES;
-        [self.shshProgress stopAnimation:nil];
+        self.progressIndicator.hidden = YES;
+        [self.progressIndicator stopAnimation:nil];
+        [defaults removeObjectForKey:@"shshBlobs"];
+        [defaults synchronize];
     }else{
-        self.shshProgress.hidden = NO;
-        [self.shshProgress startAnimation:nil];
+        self.progressIndicator.hidden = NO;
+        [self.progressIndicator startAnimation:nil];
         NSError *error;
         NSFileManager *fileManager = [NSFileManager new];
         NSError *errorMovingBlobs;
@@ -188,8 +196,8 @@
             
             NSLog(@"Reciving path: %@", [temporaryFilePath stringByAppendingString:@"/shsh/"]);
         }
-        self.shshProgress.hidden = YES;
-        [self.shshProgress stopAnimation:nil];
+        self.progressIndicator.hidden = YES;
+        [self.progressIndicator stopAnimation:nil];
  
     }
 
@@ -200,6 +208,8 @@
 -(void)makePwnediBSS{
     [self movePrerequisites];
     NSTask *task = [[NSTask alloc] init];
+    NSFileManager *fileManager = [NSFileManager new];
+    
     [task setCurrentDirectoryPath:temporaryFilePath];
 
     NSString *firmwarePath = [NSString stringWithFormat:@"%@/custom_firmware.ipsw", temporaryFilePath];
@@ -211,36 +221,76 @@
     
 
     [task setCurrentDirectoryPath:[[NSBundle mainBundle]resourcePath]];
-    
     [task launch];
+     currentTask = task;
     [task waitUntilExit];
+    task = [NSTask new];
     
     NSString *iBSS;
-    junkPath = [NSString stringWithFormat:@"%@/bss/Firmware/dfu/", [[NSBundle mainBundle]resourcePath]];
+    junkPath = [NSString stringWithFormat:@"%@/bss/Firmware/dfu/", temporaryFilePath];
     
-    NSFileManager *fileManager = [NSFileManager new];
+
     
     for(NSString *item in [fileManager contentsOfDirectoryAtPath:junkPath error:nil]) {
         if ([item containsString:@"iBSS"]) {
             iBSS = item;
         }
+        NSLog(@"iBSS folder: %@", item);
     }
     
-    iBSS = [NSString stringWithFormat:@"%@/bss/Firmware/DFU/%@", [[NSBundle mainBundle]resourcePath], iBSS];
+    
+    iBSS = [NSString stringWithFormat:@"%@/bss/Firmware/DFU/%@", temporaryFilePath, iBSS];
     NSLog(@"iBSS path: %@", iBSS);
 
-    NSString *scriptPath = [NSString stringWithFormat:@"%@/movebss.sh %@", [[NSBundle mainBundle]resourcePath], temporaryFilePath];
+ 
+    NSString *outputPath = [NSString stringWithFormat:@"%@/pwnediBSS", temporaryFilePath];
+    [task setLaunchPath:[NSString stringWithFormat:@"%@/xpwntool",[[NSBundle mainBundle]resourcePath]]];
     
-    [task setLaunchPath:@"/bin/sh"];
-    task.arguments  = @[@"-c", scriptPath];
+    task.arguments  = @[iBSS, outputPath];
     
     
     NSPipe * out = [NSPipe pipe];
     [task setStandardOutput:out];
     
     [task launch];
+    currentTask = task;
+    [self cleanup];
 
   
+    
+    
+}
+-(void)cleanup{
+    
+    NSFileManager *fileManager = [NSFileManager new];
+    NSError *errorRemovingOldFirmwareBundles;
+    NSError *errorRemovingBSSFolder;
+    NSError *errorRemovingSHSHFolder;
+    
+    if ([fileManager fileExistsAtPath:[temporaryFilePath stringByAppendingString:@"/FirmwareBundles"]] == YES) {
+        [fileManager removeItemAtPath:[temporaryFilePath stringByAppendingString:@"/FirmwareBundles"] error:&errorRemovingOldFirmwareBundles];
+    }
+    
+    
+
+    
+    [fileManager removeItemAtPath:[temporaryFilePath stringByAppendingString:@"/shsh"] error:&errorRemovingSHSHFolder];
+    
+    [fileManager removeItemAtPath:[temporaryFilePath stringByAppendingString:@"/bss"] error:&errorRemovingBSSFolder ];
+    
+    if (errorRemovingOldFirmwareBundles) {
+        // [self callError:6];
+    }
+    
+    if (errorRemovingBSSFolder) {
+        // [self callError:7];
+    }
+    
+    if (errorRemovingSHSHFolder) {
+        // [self callError:8];
+    }
+    
+
     
     
 }
@@ -250,6 +300,8 @@
 -(IBAction)cancelDowngrade:(id)sender{
     [currentTask terminate];
     
+    [self cleanup];
+    
 }
 -(void)logData:(NSNotification *)notif {
     NSFileHandle *read = [notif object];
@@ -258,7 +310,37 @@
     NSLog(@"%@",stringOutput);
 }
 
+-(IBAction)selectedValue:(NSPopUpButton *)sender{
+    [defaults setInteger:[sender indexOfSelectedItem] forKey:@"selectedItem"];
+    [defaults synchronize];
+}
+-(IBAction)goButtonAction:(id)sender{
+    switch ([defaults integerForKey:@"selectedItem"]) {
+        case 0:
+            [self downgradeDevice];
+            break;
+        case 1:
+            [self fetchSHSH];
+            break;
+        case 2:
+            [self makePwnediBSS];
+            break;
+            
+        default:
+            break;
+    }
+}
 
+- (void)defaultsChanged:(NSNotification *)notification {
+    // Get the user defaults
+    NSUserDefaults *localDefaults = (NSUserDefaults *)[notification object];
+    
+    if ([localDefaults objectForKey:@"oldFirmware"] != nil && [localDefaults objectForKey:@"shshBlobs"] != nil) {
+        self.goButton.enabled = YES;
+    }else{
+        self.goButton.enabled = NO;
+    }
+}
 
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -266,5 +348,7 @@
 
     // Update the view, if already loaded.
 }
+
+
 
 @end
