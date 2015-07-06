@@ -724,9 +724,9 @@
                                 </connections>
                             </button>
                             <button fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgs-QB-iw9">
-                                <rect key="frame" x="376" y="87" width="61" height="18"/>
-                                <buttonCell key="cell" type="bevel" title="IPSW" bezelStyle="regularSquare" imagePosition="left" alignment="left" refusesFirstResponder="YES" userInterfaceLayoutDirection="rightToLeft" allowsMixedState="YES" inset="2" id="Sl5-ud-glL">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" accelerator="YES"/>
+                                <rect key="frame" x="378" y="89" width="57" height="14"/>
+                                <buttonCell key="cell" type="check" title="IPSW" bezelStyle="regularSquare" imagePosition="left" alignment="left" refusesFirstResponder="YES" userInterfaceLayoutDirection="rightToLeft" allowsMixedState="YES" inset="2" id="Sl5-ud-glL">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>

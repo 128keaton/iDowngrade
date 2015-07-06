@@ -37,14 +37,17 @@
             if ([[path pathExtension]  isEqual: @"ipsw"]) {
                 [defaults setObject:path forKey:@"oldFirmware"];
                 [self setHighlighted:YES];
-                self.ipswCheck.state = NSOnState;
+                [self.ipswCheck setState:NSOnState];
+                
+                [self.ipswCheck performClick:self];
+                NSLog(@"ipsw found");
                 return NSDragOperationCopy;
                 
                 
             }else if([[path pathExtension] isEqual: @"shsh"]){
                 [defaults setObject:path forKey:@"shshBlobs"];
                 [self setHighlighted:YES];
-                 self.shshCheck.state = NSOnState;
+                  [self.ipswCheck performClick:self];
                 return NSDragOperationCopy;
                 
             }
@@ -101,8 +104,11 @@
         [defaults removeObjectForKey:@"shshBlobs"];
         
     }
+    if (sender == [NSButton class]) {
+   
     if (sender.state == 1) {
         sender.state = 0;
+    }
     }
     [defaults synchronize];
 }
